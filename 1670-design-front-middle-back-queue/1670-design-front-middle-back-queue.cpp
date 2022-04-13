@@ -14,8 +14,8 @@ class FrontMiddleBackQueue
 
     void pushMiddle(int val)
     {
-       	// int len = q.size();
-       	// deque<int>::iterator it = q.begin();
+       	// int len = q.size();                     --> this commented code will too execute
+       	// deque<int>::iterator it = q.begin();        and will get accepted.
        	// len = len/2;
        	// q.insert(it+len,val);
 
