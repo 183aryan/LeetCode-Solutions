@@ -26,23 +26,14 @@ public:
                 
                 if(temp->val%2==0)
                 {
-                    //ll
                     if(temp->left!=NULL&&temp->left->left!=NULL)
                         ans+=temp->left->left->val ;
-                    
-                    //lr
                     if(temp->left!=NULL&&temp->left->right!=NULL)
                         ans+=temp->left->right->val ;
-                    
-                    //rl
                     if(temp->right!=NULL&&temp->right->left!=NULL)
                         ans+=temp->right->left->val ;
-                    
-                    //rr
                     if(temp->right!=NULL&&temp->right->right!=NULL)
                         ans+=temp->right->right->val ;
-                    
-                
                     }
                     if(temp->left)
                         q.push(temp->left);
