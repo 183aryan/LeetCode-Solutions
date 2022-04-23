@@ -13,17 +13,21 @@ class Solution {
 public:
     // in this question we are finding minimum and maximum from every subtree and keep on updating ans with max difference value.
     int ans = INT_MIN;
+    int mn,mx;
     void find(TreeNode* root, int mn, int mx){
         if(root == NULL) return;
         ans = max({ans,root->val-mn,mx-root->val});
         mn = min(mn,root->val);
         mx = max(mx,root->val);
-        find(root->left,mn,mx);
         find(root->right,mn,mx);
+        find(root->left,mn,mx);
+        // find(root->right,mn,mx);
     }
     int maxAncestorDiff(TreeNode* root) {
         if(root == NULL) return 0;
-        find(root,root->val,root->val);
+        mn = root->val;
+        mx = root->val;
+        find(root,mn,mx);
         return ans;
     }
 };
