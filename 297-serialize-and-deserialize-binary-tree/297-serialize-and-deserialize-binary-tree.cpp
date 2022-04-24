@@ -48,7 +48,7 @@ public:
         return curr;
     }
     TreeNode* deserialize(string data) {
-        if(data.size()<=1) return NULL;
+        if(data.size()<1) return NULL;
         return decode(data);
     }
 };
