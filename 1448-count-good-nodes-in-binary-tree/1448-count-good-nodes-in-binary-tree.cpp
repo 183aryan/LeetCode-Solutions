@@ -26,7 +26,7 @@ public:
     int goodNodes(TreeNode* root) {
         int mx = INT_MIN;
         // int x = root->val;
-        count(root,mx);
-        return cnt;
+        return count(root,mx);
+        
     }
 };
