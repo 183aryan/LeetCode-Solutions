@@ -11,6 +11,7 @@
 class Solution {
 public:
     void reorderList(ListNode* head) {
+        if(head == NULL || head->next == NULL) return;
         stack<ListNode*> st;
         ListNode* curr = head;
         int len = 0;
