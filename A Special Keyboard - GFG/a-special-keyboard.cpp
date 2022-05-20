@@ -13,7 +13,7 @@ class Solution {
     int findTime(string S1, string S2) {
         // code here
         int cnt = 0,prev=0;
-        map<char,int> m;
+        unordered_map<char,int> m;
         for(int i=0;i<S1.size();i++){
             m[S1[i]] = i;
         }
