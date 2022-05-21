@@ -9,16 +9,23 @@ class Solution{
   public:
     vector<int> farNumber(int N,vector<int> Arr){
         //code here
-        vector<int> v;
+        vector<int> v,minArr(N);
+        minArr[N-1] = Arr[N-1];
+        for(int i=N-2;i>=0;i--){
+            minArr[i] = min(Arr[i],minArr[i+1]);
+        }
+        
         for(int i=0;i<N;i++){
-            int res = -1;
-            for(int j=N-1;j>=i;j--){
-                if(Arr[i] > Arr[j]){
-                    res = j;
-                    break;
+            int lo = i+1,hi = N-1,ans = -1;
+            while(hi>=lo){
+                int mid = lo + (hi-lo)/2;
+                if(minArr[mid] < Arr[i]){
+                    ans = mid;
+                    lo = mid+1;
                 }
+                else hi = mid-1;
             }
-            v.push_back(res);
+            v.push_back(ans);
         }
         return v;
     }
