@@ -1,7 +1,7 @@
 class Solution {
 public:
-    int dx[4] = {-1,0,1,0};
-    int dy[4] = {0,1,0,-1};
+    int dx[4] = {1,-1,0,0};
+    int dy[4] = {0,0,1,-1};
     
     int maxDistance(vector<vector<int>>& grid) {
         queue<pair<int,int>> q;
@@ -12,7 +12,6 @@ public:
             }
         }
         if(q.size() == grid.size()*grid[0].size()) return -1;
-        
         int cnt = 0;
         
         while(!q.empty()){
