@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool canVisitAllRooms(vector<vector<int>>& rooms) {
-        set<int> visited;
+        unordered_set<int> visited;
         queue<int> q;
         q.push(0);
         while(!q.empty()){
