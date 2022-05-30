@@ -13,8 +13,8 @@ public:
         long long int res = 0;
         while(a - b >= 0){
             long long int cnt=0;
-            while(a - (b << 1 << cnt) >= 0) cnt++; 
-            res += 1 << cnt;
+            while(a - (b << 1 << cnt) >= 0) cnt++; // here we are left shifting the b count no of times i.e., b will becomes it twice in each next iteration.
+            res += 1 << cnt;   // actual cnt is 1 << cnt, as it helps in doubling the b
             a -= b << cnt;
         }
         if(sign) return res;
