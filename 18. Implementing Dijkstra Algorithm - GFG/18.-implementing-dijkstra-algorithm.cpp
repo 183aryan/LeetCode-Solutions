@@ -23,8 +23,8 @@ class Solution
             pq.pop();
             
             for(auto it:adj[prev]){
-                if(dist[it[0]] > dist[prev] + it[1]){
-                    dist[it[0]] = dist[prev] + it[1];
+                if(dist[it[0]] > d + it[1]){
+                    dist[it[0]] = d + it[1];
                     pq.push({dist[it[0]],it[0]});
                 }
             }
