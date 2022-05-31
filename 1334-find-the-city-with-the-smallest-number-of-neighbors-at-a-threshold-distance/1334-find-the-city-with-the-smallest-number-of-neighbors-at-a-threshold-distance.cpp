@@ -1,7 +1,7 @@
 class Solution {
 public:
     int findTheCity(int n, vector<vector<int>>& edges, int distanceThreshold) {
-        vector<vector<int>> dist(n, vector<int> (n, 20000)); //int_max par overflow aa rha h
+        vector<vector<int>> dist(n, vector<int> (n, 15000)); //int_max par overflow aa rha h
         
         for(int i = 0; i < n; i++) dist[i][i] = 0;
         for(auto &edge : edges) {
