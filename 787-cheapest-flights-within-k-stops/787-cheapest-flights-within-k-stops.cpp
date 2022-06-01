@@ -20,6 +20,9 @@ class Solution
                 int stops = x[2];
                 
                 if(dist[curr] < stops) continue;
+                
+                /* dist[curr] is the no of stops required to reach the current node from any                   other parents.if reaching this curr node using current path costs more steps                   from some previous other path, then it's better to drop this path, as we are                   allowed at most k steps */
+
                 dist[curr] = stops;
 
                 if (curr == dst) return cost;
