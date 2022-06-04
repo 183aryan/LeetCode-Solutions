@@ -1,18 +1,18 @@
 class Solution {
 public:
-    bool dfs(int src,vector<int> adj[],vector<int>& visited,vector<int>& recSt){
-        visited[src] = 1;
-        recSt[src] = 1;
+    bool dfs(int src,vector<int> adj[],vector<bool>& visited,vector<bool>& recSt){
+        visited[src] = true;
+        recSt[src] = true;
         for(auto x:adj[src]){
-            if(visited[x] == 0 and dfs(x,adj,visited,recSt)) return true;
-            else if(visited[x] == 1 and recSt[x] == 1) return true;
+            if(visited[x] == false and dfs(x,adj,visited,recSt)) return true;
+            else if(visited[x] == true and recSt[x] == true) return true;
         }
-        recSt[src] = 0;
+        recSt[src] = false;
         return false;
     }
     bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
-        vector<int> visited(numCourses,0);
-        vector<int> recSt(numCourses,0);
+        vector<bool> visited(numCourses,0);
+        vector<bool> recSt(numCourses,0);
         
         vector<int> adj[numCourses];
         for(int i=0;i<prerequisites.size();i++)
