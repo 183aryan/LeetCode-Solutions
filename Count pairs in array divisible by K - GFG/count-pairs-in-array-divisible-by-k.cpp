@@ -17,9 +17,9 @@ class Solution
         unordered_map<long long,long long> um;
         long long cnt = 0;
         for(int i=0;i<n;i++){
-            int r = A[i]%K;
-            cnt += um[(K-r)%K];
-            um[r]++;
+            int r = A[i]%K; // checking for remainder whether divisble by k or not
+            cnt += um[(K-r)%K]; // finding remainder's complement in the map
+            um[r]++; // storing the remainder in the map
         }
         return cnt;
     }
