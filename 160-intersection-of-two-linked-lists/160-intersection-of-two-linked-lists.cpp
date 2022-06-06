@@ -28,16 +28,16 @@ public:
         currB = headB;
         if(cA > cB){
         for(int i=0;i<d;i++){
-            // if(currA == NULL){
-            //     return NULL;
-            // }
+            if(currA == NULL){
+                return NULL;
+            }
             currA = currA->next;
         }}
         else{
            for(int i=0;i<d;i++){
-            // if(currB == NULL){
-            //     return NULL;
-            // }
+            if(currB == NULL){
+                return NULL;
+            }
             currB = currB->next;
         } 
         }
