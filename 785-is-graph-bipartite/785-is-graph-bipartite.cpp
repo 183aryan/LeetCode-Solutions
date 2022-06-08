@@ -1,11 +1,11 @@
 class Solution {
 public:
-    bool bipartite(int src,vector<vector<int>>& graph,vector<int>& color){
+    bool bipartiteDFS(int src,vector<vector<int>>& graph,vector<int>& color){
         if(color[src] == -1) color[src] = 1;
         for(auto it:graph[src]){
             if(color[it] == -1){
                 color[it] = 1 - color[src];
-                if(bipartite(it,graph,color) == false) return false;
+                if(bipartiteDFS(it,graph,color) == false) return false;
             }
             else if(color[it] == color[src]) return false;
         }
@@ -17,7 +17,7 @@ public:
         
         for(int i=0;i<n;i++){
             if(color[i] == -1){
-                if(bipartite(i,graph,color) == false) return false;
+                if(bipartiteDFS(i,graph,color) == false) return false;
             }
         }
         return true;
