@@ -1,7 +1,7 @@
 class Solution {
 public:
     int maximumUniqueSubarray(vector<int>& nums) {
-        set<int> s;
+        unordered_set<int> s;
         int l=0,r=0,sum = 0,res=0;
         while(r < nums.size()){
             sum += nums[r];
