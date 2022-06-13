@@ -8,11 +8,11 @@ class Solution
 {
     public:
         bool check(int mid,int n){
-            int cnt2=0,cnt5=0,num = mid;
+            int cnt5=0,x = mid;
             // num = mid;
-            while(num){
-                num /= 5;
-                cnt5+=num;
+            while(x){
+                x /= 5;
+                cnt5+=x;
             }
             return (cnt5 >= n);
         }
