@@ -19,7 +19,7 @@ class Solution
         int findNum(int n)
         {
         //complete the function here
-        int lo = 1,hi = 5*n,mid,ans;
+        int lo = 1,hi = 1e9,mid,ans;
         while(hi >= lo){
             mid = lo + (hi - lo)/2;
             if(check(mid,n)){
