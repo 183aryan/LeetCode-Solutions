@@ -30,13 +30,13 @@ public:
 
     int longestPath(vector<vector<int>> matrix, int xs, int ys, int xd, int yd)
     {
-        vector<vector<bool>> visited;
         int n = matrix.size();
         int m = matrix[0].size();
-        for(int i = 0; i < n; i++){
-            vector<bool> vis(m, false);
-            visited.push_back(vis);
-        }
+        vector<vector<bool>> visited(n,vector<bool>(m,false));
+        // for(int i = 0; i < n; i++){
+        //     vector<bool> vis(m, false);
+        //     visited.push_back(vis);
+        // }
         int ans = -1;
         travel(matrix, xs, ys, xd, yd, visited, ans, n, m, 0);
         return ans;
