@@ -10,8 +10,8 @@ using namespace std;
 
 class Solution {
 public:
-    // int ans = -1;
-    void travel(vector<vector<int>> &matrix, int xs, int ys, int xd, int yd, vector<vector<bool>> visited, int &ans, int n, int m, int curr){
+    int ans = -1;
+    void f(vector<vector<int>> &matrix, int xs, int ys, int xd, int yd, vector<vector<bool>> visited, int n, int m, int curr){
         if(xs < 0 || ys < 0 || xs >= n || ys >= m || visited[xs][ys] == true || matrix[xs][ys] == 0){
             return;
         }
@@ -20,10 +20,10 @@ public:
             return;
         }
         visited[xs][ys] = true;
-        travel(matrix, xs + 1, ys, xd, yd, visited, ans, n, m, curr + 1);
-        travel(matrix, xs - 1, ys, xd, yd, visited, ans, n, m, curr + 1);
-        travel(matrix, xs, ys + 1, xd, yd, visited, ans, n, m, curr + 1);
-        travel(matrix, xs, ys - 1, xd, yd, visited, ans, n, m, curr + 1);
+        f(matrix, xs + 1, ys, xd, yd, visited, n, m, curr + 1);
+        f(matrix, xs - 1, ys, xd, yd, visited, n, m, curr + 1);
+        f(matrix, xs, ys + 1, xd, yd, visited, n, m, curr + 1);
+        f(matrix, xs, ys - 1, xd, yd, visited, n, m, curr + 1);
     }
 
 
@@ -33,12 +33,8 @@ public:
         int n = matrix.size();
         int m = matrix[0].size();
         vector<vector<bool>> visited(n,vector<bool>(m,false));
-        // for(int i = 0; i < n; i++){
-        //     vector<bool> vis(m, false);
-        //     visited.push_back(vis);
-        // }
-        int ans = -1;
-        travel(matrix, xs, ys, xd, yd, visited, ans, n, m, 0);
+        // int ans = -1;
+        f(matrix, xs, ys, xd, yd, visited,n, m, 0);
         return ans;
     }
 };
