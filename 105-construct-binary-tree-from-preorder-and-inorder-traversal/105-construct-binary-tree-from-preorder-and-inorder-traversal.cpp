@@ -15,7 +15,8 @@ public:
     int idx = 0;
     TreeNode* solve(vector<int>& preorder, vector<int>& inorder,int lo,int hi){
         if(lo > hi) return NULL;
-        TreeNode* res = new TreeNode(preorder[idx++]);
+        TreeNode* res = new TreeNode(preorder[idx]);
+        idx++;
         if(lo == hi) return res;
         int mid = m[res->val];
         res->left = solve(preorder,inorder,lo,mid-1);
