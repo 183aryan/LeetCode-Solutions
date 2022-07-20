@@ -1,7 +1,7 @@
 class Solution {
 public:
     int numMatchingSubseq(string s, vector<string>& words) {
-        map<char,vector<int>> m;
+        unordered_map<char,vector<int>> m;
         int i=0;
         for(auto x:s){
             m[x].push_back(i);
