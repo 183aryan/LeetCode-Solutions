@@ -21,8 +21,8 @@ public:
 class Solution {
 public:
     vector<vector<int>> levelOrder(Node* root) {
+        if(root == NULL) return {};
         vector<vector<int>> ans;
-        if(root == NULL) return ans;
         vector<int> v;
         queue<Node *> q;
         q.push(root);
