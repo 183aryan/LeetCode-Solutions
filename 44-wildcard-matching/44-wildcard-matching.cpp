@@ -14,7 +14,7 @@ public:
         
         if(p[i] == s[j] || p[i] == '?')
             return dp[i][j] = f(i-1,j-1,p,s,dp);
-        if(p[i] == '*') return dp[i][j] = f(i,j-1,p,s,dp) || f(i-1,j,p,s,dp);
+        if(p[i] == '*') return dp[i][j] = f(i,j-1,p,s,dp) | f(i-1,j,p,s,dp);
         
         return dp[i][j] = false;
     }
