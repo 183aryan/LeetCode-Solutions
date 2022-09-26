@@ -27,7 +27,7 @@ public:
             last = hash[last];
             temp.push_back(nums[last]);
         }
-        
+        reverse(temp.begin(), temp.end());
         return temp;
     }
 };
