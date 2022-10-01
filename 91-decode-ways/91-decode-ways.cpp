@@ -6,7 +6,7 @@ public:
         if(dp[ind] != -1) return dp[ind];
         int one = f(ind+1, s, dp);
         int two = 0;
-        if(ind+1 < s.size() and (s[ind] == '1' || (s[ind] == '2' and s[ind+1] <= '6'))){
+        if(ind+1 < s.size() && ((s[ind] == '1' && s[ind+1] <= '9') || (s[ind]=='2' && s[ind+1] <= '6'))){
             two = f(ind+2, s, dp);
         }
         return dp[ind] = one + two;
