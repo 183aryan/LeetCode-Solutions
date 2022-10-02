@@ -9,11 +9,11 @@ public:
         if(n >= 1 and target <= 0) return 0;
         
         if(dp[n][target] != -1) return dp[n][target];
-        long long int cnt=0;
+        long long int take=0;
         for(int i=1;i<=k;i++){
-            cnt += (f(n-1,k,target-i,dp)%mod);
+            take += (f(n-1,k,target-i,dp)%mod);
         }
-        return dp[n][target] = cnt%mod;
+        return dp[n][target] = take%mod;
     }
     int numRollsToTarget(int n, int k, int target) {
         vector<vector<int>> dp(n+1, vector<int> (target+1, -1));
