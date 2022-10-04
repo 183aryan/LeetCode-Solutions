@@ -14,10 +14,8 @@ class Solution
     public:
         bool hasPathSum(TreeNode *root, int targetSum)
         {
-           	// int sum = 0;
             if (root == NULL) return false;
             targetSum -= root->val;
-           	// sum += root->val;
             if (targetSum == 0 and root->left == NULL and root->right == NULL) return true;
             return (hasPathSum(root->left, targetSum) || hasPathSum(root->right, targetSum));
         }
