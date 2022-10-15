@@ -23,7 +23,7 @@ public:
         return dp[in][k] = re;
     }
     int getLengthOfOptimalCompression(string s, int k) {
-        dp = vector<vector<int>>(s.size()+1,vector<int>(k+1,-1));
+        dp.resize(s.size()+1,vector<int>(k+1,-1));
         return dfs(s, 0, k);
         
     }
