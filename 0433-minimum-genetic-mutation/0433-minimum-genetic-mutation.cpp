@@ -1,43 +1,34 @@
 class Solution {
 public:
     int minMutation(string start, string end, vector<string>& bank) {
-queue<string>q;
-        unordered_set<string>visited;
-        
+        queue<string> q;
+        set<string> visited;
         q.push(start);
         visited.insert(start);
         
-        int count = 0;
+        int cnt=0;
         
-        while(!q.empty())
-        {
-            int n = q.size();
-            for(int i=0;i<n;i++)
-            {
-                string node = q.front();
+        while(q.size()){
+            int sz = q.size();
+            for(int i=0;i<sz;i++){
+                auto x = q.front();
                 q.pop();
                 
-                if(node == end)
-                {
-                    return count;
-                }
+                if(x == end) return cnt;
                 
-                for(char ch :"ACGT")
-                {
-                    for(int j=0;j<node.size();j++)
-                    {
-                        string adjNode = node;
-                        adjNode[j] = ch;
-                       if(!visited.count(adjNode) &&                  find(bank.begin(),bank.end(),adjNode)!= bank.end())
-            {
-                q.push(adjNode);
-                visited.insert(adjNode);
-            }
+                for(auto it:"ACGT"){
+                    for(int j=0;j<x.size();j++){
+                        string adjacent = x;
+                        adjacent[j] = it;
+                        if(!visited.count(adjacent) and find(bank.begin(), bank.end(), adjacent) != bank.end()){
+                            q.push(adjacent);
+                            visited.insert(adjacent);
+                        }
                     }
                 }
             }
-             count++;
+            cnt++;
         }
-       return -1; 
+        return -1;
     }
 };
