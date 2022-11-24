@@ -6,7 +6,7 @@ public:
         if(board[i][j] != word[len]) return false;
         
         char ch = board[i][j];
-        board[i][j] = '*';
+        board[i][j] = '#';
         
         bool ans = (dfs(i+1, j, board, word, len+1) ||
            dfs(i, j+1, board, word, len+1) ||
