@@ -21,6 +21,7 @@ public:
         return max(f(root->left, maxi, mini), f(root->right, maxi, mini));
     }
     int maxAncestorDiff(TreeNode* root) {
+        if(root == NULL) return 0;
         return f(root, root->val, root->val);
     }
 };
