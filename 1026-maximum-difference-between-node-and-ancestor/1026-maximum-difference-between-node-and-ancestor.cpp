@@ -12,22 +12,15 @@
 class Solution {
 public:
     // in this question we are finding minimum and maximum from every subtree and keep on updating ans with max difference value.
-    int ans = INT_MIN;
-    int mn,mx;
-    void find(TreeNode* root, int mn, int mx){
-        if(root == NULL) return;
-        ans = max({ans,root->val-mn,mx-root->val});
-        mn = min(mn,root->val);
-        mx = max(mx,root->val);
-        find(root->right,mn,mx);
-        find(root->left,mn,mx);
-        // find(root->right,mn,mx);
+    int f(TreeNode* root, int maxi, int mini){
+        if(root == NULL) return abs(maxi-mini);
+        
+        maxi = max(maxi, root->val);
+        mini = min(mini, root->val);
+        
+        return max(f(root->left, maxi, mini), f(root->right, maxi, mini));
     }
     int maxAncestorDiff(TreeNode* root) {
-        if(root == NULL) return 0;
-        mn = root->val;
-        mx = root->val;
-        find(root,mn,mx);
-        return ans;
+        return f(root, root->val, root->val);
     }
 };
