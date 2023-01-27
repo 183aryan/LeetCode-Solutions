@@ -14,7 +14,7 @@ public:
             dp[0]=1;
             for(int i=0;i<n;i++){
                 if(dp[i] == 0) continue;
-                for(int j=i;j<=n;j++){
+                for(int j=i+1;j<=n;j++){
                     if(j-i<n and um[it.substr(i, j-i)] > 0) dp[j] = 1;
                 }
                 if(dp[n]){
