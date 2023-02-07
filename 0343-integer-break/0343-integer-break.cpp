@@ -1,15 +1,15 @@
 class Solution {
 public:
+    int f(int n, int i){
+        if(n == 0) return 1;
+        if(n < 0 || i <= 0) return 0;
+        
+        int notTake = f(n, i-1);
+        int take = i*f(n-i, i);
+        
+        return max(take, notTake);
+    }
     int integerBreak(int n) {
-        int dp[n + 1];
-        dp[0] = 0;
-        dp[1] = 1;
-        dp[2] = 1;
-        if(n >= 3) dp[3] = 2;
-        if(n >= 4) dp[4] = 4;
-        for (int i = 5; i <= n; ++i) {
-            dp[i] = 3 * max(i - 3, dp[i - 3]);
-        }
-        return dp[n];
+        return f(n, n-1);
     }
 };
