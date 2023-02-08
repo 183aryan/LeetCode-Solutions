@@ -20,11 +20,9 @@ public:
         dp[n-1] = 0;
         for(int i=n-2;i>=0;i--){
             long long int mini = INT_MAX;
-            bool flag=false;
             for(int j=1;j<=nums[i];j++){
                 if(i+j >= n-1){
                     dp[i] = 1;
-                    flag = true;
                     break;
                 }
                 mini = min(mini, 1+dp[i+j]);
