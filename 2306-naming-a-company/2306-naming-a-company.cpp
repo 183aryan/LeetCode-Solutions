@@ -11,9 +11,12 @@ public:
         
         for(int i=0;i<26;i++){
             for(int j=i+1;j<26;j++){
-                long long int common=0;
+                int common=0;
                 for(auto x:vs[i]){
-                    if(vs[j].count(x)) common++;
+                    if(vs[j].count(x)){
+                        cout << x << endl;
+                        common++;
+                    }
                 }
                 cnt += (2 * (vs[i].size() - common) * (vs[j].size() - common));
             }
