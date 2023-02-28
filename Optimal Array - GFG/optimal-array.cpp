@@ -12,13 +12,10 @@ class Solution{
 public:
     vector<int> optimalArray(int n,vector<int> &a){
         vector<int> v;
-        for(int i=0;i<n;i++){
-            int median = a[i/2];
-            v.push_back(a[i] - median);
+        v.push_back(0);
+        for(int i=1;i<n;i++){
+            v.push_back(a[i] - a[i/2] + v[i-1]);
         }
-        v[0] = 0;
-        for(int i=1;i<v.size();i++) v[i] += v[i-1];
-        
         return v;
     }
 };
