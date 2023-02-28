@@ -16,7 +16,13 @@ public:
     
     string serialize(TreeNode* root) {
         if(root == NULL) return "";
-        string s = serialize(root->left) + "," + serialize(root->right) + "," + to_string(root->val);
+        
+        // string s = serialize(root->left) + "," + serialize(root->right) + "," + to_string(root->val);
+        // Or
+        
+        string left = serialize(root->left);
+        string right = serialize(root->right);
+        string s = left + "," + right + "," + to_string(root->val);
         
         um[s]++;
         if(um[s] == 2) v.push_back(root);
