@@ -41,7 +41,7 @@ public:
                         visited[it] = true;
                     }
                 }
-                v.clear();
+                um[arr[j]].clear();
             }
         }
         return -1;
