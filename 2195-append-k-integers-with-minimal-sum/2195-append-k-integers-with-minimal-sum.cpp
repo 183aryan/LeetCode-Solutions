@@ -6,11 +6,11 @@ public:
         long long int sum=0;
         sort(nums.begin(), nums.end());
         
-        // int cnt;
+        long long int cnt;
         for(int i=0;i<nums.size();i++){
             curr = nums[i];
             
-            long long int cnt = (nums[i] - prev - 1);
+            cnt = (nums[i] - prev - 1);
             
             if(cnt <= 0){
                 prev = curr;
