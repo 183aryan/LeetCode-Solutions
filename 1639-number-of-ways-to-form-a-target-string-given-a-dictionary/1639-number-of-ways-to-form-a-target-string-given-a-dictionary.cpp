@@ -3,7 +3,7 @@ public:
     long long int mod = 1e9+7;
     int f(int i, int j, vector<string>& words, string& target, vector<vector<int>>& freq, vector<vector<int>>& dp){
         if(j == target.size()) return 1;
-        if(i == freq[0].size()) return 0;
+        if(i == words[0].size()) return 0;
         
 
          if(dp[i][j] != -1) return dp[i][j];
