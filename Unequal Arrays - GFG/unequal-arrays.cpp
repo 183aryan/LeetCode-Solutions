@@ -57,7 +57,7 @@ class Solution {
                 oddB.push_back(B[i]);
             }
         }
-        if(suma!=sumb||(evenA.size()!=evenB.size())){
+        if(suma!=sumb||(oddA.size()!=oddB.size())){
             return -1;
         }
          long long  diff=0;
