@@ -1,6 +1,6 @@
 class Solution {
 public:
-    long long int mod = 1e9+7;
+    int mod = 1e9+7;
     int f(int i, int j, vector<string>& words, string& target, vector<vector<int>>& freq, vector<vector<int>>& dp){
         if(j == target.size()) return 1;
         if(i == words[0].size()) return 0;
@@ -17,7 +17,7 @@ public:
         {
             int currWays = freq[targetCh][i];
             int nextWays = f(i + 1, j + 1,words, target, freq, dp);
-            pick = (currWays%mod * nextWays%mod) % mod;
+            pick = (1LL*currWays%mod * 1LL*nextWays%mod) % mod;
         }
         
         return dp[i][j] = (pick%mod + notPick%mod)%mod;
