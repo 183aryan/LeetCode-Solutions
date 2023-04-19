@@ -15,14 +15,11 @@ public:
     void dfs(TreeNode* root, bool left, int steps){
         if(root == NULL) return;
         maxi = max(maxi, steps);
-        cout << "maxi = " << maxi << endl;
         if(left){
-            cout << "hi" << endl;
             dfs(root->left, false, steps+1);
             dfs(root->right, true, 1);
         }
         else{
-            cout << "hello" << endl;
             dfs(root->right, true, steps+1);
             dfs(root->left, false, 1);
         }
