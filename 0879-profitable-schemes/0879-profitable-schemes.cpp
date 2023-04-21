@@ -8,10 +8,9 @@ public:
             return 1;
         }
         
-        if(minProfit < 0) minProfit = 0;
         if(dp[minProfit][n][index] != -1) return dp[minProfit][n][index];
         
-        int pick = f(index+1, n - group[index], minProfit - profit[index], group, profit, dp);
+        int pick = f(index+1, n - group[index], max(0,minProfit - profit[index]), group, profit, dp);
         int notPick = f(index+1, n, minProfit, group, profit, dp);
         
         return dp[minProfit][n][index] = (pick + notPick)%mod;
