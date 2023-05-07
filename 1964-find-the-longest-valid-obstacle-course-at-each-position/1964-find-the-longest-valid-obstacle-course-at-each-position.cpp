@@ -11,7 +11,7 @@ public:
                 v[i] = lis.size();
             }
             else{
-                int index = lower_bound(lis.begin(), lis.end(), obs[i]+1) - lis.begin();
+                int index = upper_bound(lis.begin(), lis.end(), obs[i]) - lis.begin();
                 lis[index] = obs[i];
                 v[i] = index + 1;
             }
