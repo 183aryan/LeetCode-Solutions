@@ -13,6 +13,7 @@ public:
     void checkOut(int id, string stationName, int t) {
         string startEnd = checkIns[id].first + '-' + stationName;
         route[startEnd] = {route[startEnd].first + (t - checkIns[id].second), route[startEnd].second + 1};
+        checkIns.erase(id);
     }
     
     double getAverageTime(string startStation, string endStation) {
