@@ -5,7 +5,6 @@ public:
     void dfs(int headID, int time, vector<int>& informTime, vector<vector<int>>& graph){
         maxi = max(time, maxi);
         for(auto x:graph[headID]){
-            // ans += informTime[headID];
             dfs(x, time + informTime[headID], informTime, graph);
         }
     }
