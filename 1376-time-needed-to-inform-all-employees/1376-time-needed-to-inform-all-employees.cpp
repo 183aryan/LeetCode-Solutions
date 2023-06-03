@@ -1,23 +1,22 @@
 class Solution {
 public:
-    unordered_map<int,vector<int>> um;
-    int ans = 0,mx = 0;
+    int maxi = INT_MIN;
     
-    void DFS(int headID, vector<int>& informTime){
-        mx = max(ans,mx);
-        for(auto x:um[headID]){
-            ans += informTime[headID];
-            DFS(x,informTime);
-            ans -= informTime[headID];
+    void dfs(int headID, int time, vector<int>& informTime, vector<vector<int>>& graph){
+        maxi = max(time, maxi);
+        for(auto x:graph[headID]){
+            // ans += informTime[headID];
+            dfs(x, time + informTime[headID], informTime, graph);
         }
     }
     int numOfMinutes(int n, int headID, vector<int>& manager, vector<int>& informTime) {
+        vector<vector<int>> graph(n);
         for(int i=0;i<n;i++){
             int val = manager[i];
             if(val != -1)
-            um[val].push_back(i);
+            graph[val].push_back(i);
         }
-        DFS(headID,informTime);
-        return mx;
+        dfs(headID, 0, informTime, graph);
+        return maxi;
     }
 };
