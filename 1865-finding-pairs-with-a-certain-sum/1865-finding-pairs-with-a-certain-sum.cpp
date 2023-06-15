@@ -17,7 +17,7 @@ public:
     int count(int tot) {
         int cnt=0;
         for(auto it:v1){
-            if(um.count(tot - it)){
+            if(tot > it and um.count(tot - it)){
                 cnt += um[tot-it];
             }
         }
