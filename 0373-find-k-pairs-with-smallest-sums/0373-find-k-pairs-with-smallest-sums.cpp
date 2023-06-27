@@ -10,8 +10,8 @@ public:
         vector<int> ans;
         priority_queue<pair<int, int>, vector<pair<int, int>>, mycompare> pq;
         
-        for(int i=0;i<min((int)nums1.size(), k);i++){
-            for(int j=0;j<min((int)nums2.size(), k);j++){
+        for(int i=0;i<nums1.size();i++){
+            for(int j=0;j<nums2.size();j++){
                 if(pq.size() < k) pq.push({nums1[i], nums2[j]});
                 else if(nums1[i]+nums2[j] < pq.top().first + pq.top().second){
                     pq.pop();
@@ -22,7 +22,6 @@ public:
         }
         
         while(pq.size() > 0){
-            // vp.push_back(pq.top());
             ans.clear();
             ans.push_back(pq.top().first);
             ans.push_back(pq.top().second);
