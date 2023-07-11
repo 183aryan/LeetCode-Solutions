@@ -8,15 +8,15 @@ public:
         while(j < s.size()){
             um[s[j]]++;
             
-            if(um[s[j]] > 1){
+//             if(um[s[j]] > 1){
                 while(um[s[j]] > 1){
                     um[s[i]]--;
-                    if(um[s[i]] == 0) um.erase(s[i]);
+                    // if(um[s[i]] == 0) um.erase(s[i]);
                     i++;
                 }
-            }
-            else maxi = max(maxi, j-i+1);
-            j++;
+//             }
+               maxi = max(maxi, j-i+1);
+               j++;
         }
         return maxi;
     }
