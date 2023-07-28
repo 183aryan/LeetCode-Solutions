@@ -1,18 +1,20 @@
 class Solution {
 public:
-    int f(int i, int j, vector<int>& nums, bool flag){
+    int f(int i, int j, vector<int>& nums, vector<vector<int>>& dp, bool flag){
         if(i > j) return 0;
+        if(dp[i][j] != -1) return dp[i][j];
         int res = 0;
         if(flag){
-            res = max(nums[i] + f(i+1, j, nums, false), nums[j] + f(i, j-1, nums, false));
+            res = max(nums[i] + f(i+1, j, nums, dp, false), nums[j] + f(i, j-1, nums, dp, false));
         }
-        else res = min(-nums[i] + f(i+1, j, nums, true), -nums[j] + f(i, j-1, nums, true));
+        else res = min(-nums[i] + f(i+1, j, nums, dp, true), -nums[j] + f(i, j-1, nums, dp, true));
         
-        return res;
+        return dp[i][j] = res;
     }
     bool PredictTheWinner(vector<int>& nums) {
         bool flag=true;
-        int ans = f(0, nums.size()-1, nums, flag);
+        vector<vector<int>> dp(21, vector<int>(21, -1));
+        int ans = f(0, nums.size()-1, nums, dp, flag);
         return (ans >= 0) ? true : false;
     }
 };
