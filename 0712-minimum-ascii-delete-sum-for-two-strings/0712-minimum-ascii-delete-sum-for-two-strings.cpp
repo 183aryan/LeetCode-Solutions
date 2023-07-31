@@ -17,7 +17,7 @@ public:
     int minimumDeleteSum(string s1, string s2) {
         int n=s1.size();
         int m=s2.size();
-        vector<vector<int>> dp(n+1, vector<int> (m+1, -1));
+        vector<vector<int>> dp(n, vector<int> (m, -1));
         return f(0, 0, s1, s2, dp);
     }
 };
